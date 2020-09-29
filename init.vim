@@ -2,6 +2,7 @@ filetype plugin indent on
 syntax enable
 set expandtab
 set tabstop=4
+set softtabstop=4
 set shiftwidth=4
 set colorcolumn=80
 
@@ -30,6 +31,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'cespare/vim-toml'
 
 call plug#end()
 
@@ -56,15 +58,12 @@ let g:python3_host_prog='/usr/bin/python3'
 
 " Format on save
 autocmd BufWrite * :Autoformat
-autocmd BufWrite * :PrettierAsync
+autocmd BufWrite *.js,*.jsx,*.ts,*.tsx,*.css,*.scss,*.json,*.md,*.yaml,*.html,*.toml PrettierAsync
 
 " Disable vim's default formatting
 let g:autoformat_autoindent=0
 let g:autoformat_retab=0
 let g:autoformat_remove_trailing_spaces=0
-
-" Formatting for specific filetypes
-autocmd FileType yaml setlocal tabstop=2 sts=2 shiftwidth=2 expandtab
 
 " See github.com/neoclide/coc.nvim, specifically the
 " 'Example vim configuration section' for an explanation
@@ -103,10 +102,18 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gp <Plug>(coc-diagnostic-prev)
 nmap <silent> gn <Plug>(coc-diagnostic-next)
 
-nmap <leader>rn <Plug>(coc-rename)
+nmap <Leader>rn <Plug>(coc-rename)
 
-" Toggle Tree
+" Configure tree
 nnoremap <leader>b :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
+nnoremap <Leader>r :NERDTreeFocus<CR>:normal R<CR><C-w><C-p>
 
-" Close tree if it is the last open buffer
+" Close tree if it is the last buffer open
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" Language-specific overrides/settings
+autocmd FileType asm setlocal tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
+
+autocmd FileType yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2
+
