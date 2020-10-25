@@ -4,7 +4,7 @@ set expandtab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-set colorcolumn=80
+set colorcolumn=72
 
 set number relativenumber
 
@@ -24,14 +24,14 @@ endif
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Chiel92/vim-autoformat'
 Plug 'itchyny/lightline.vim'
-Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'joshdick/onedark.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'cespare/vim-toml'
+Plug 'fidian/hexmode'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 call plug#end()
 
@@ -56,14 +56,12 @@ let g:lightline = {
 " Python configuration
 let g:python3_host_prog='/usr/bin/python3'
 
-" Format on save
-autocmd BufWrite * :Autoformat
-autocmd BufWrite *.js,*.jsx,*.ts,*.tsx,*.css,*.scss,*.json,*.md,*.yaml,*.html,*.toml PrettierAsync
-
 " Disable vim's default formatting
 let g:autoformat_autoindent=0
 let g:autoformat_retab=0
 let g:autoformat_remove_trailing_spaces=0
+
+autocmd BufWrite * :Autoformat
 
 " See github.com/neoclide/coc.nvim, specifically the
 " 'Example vim configuration section' for an explanation
@@ -113,7 +111,7 @@ nnoremap <Leader>r :NERDTreeFocus<CR>:normal R<CR><C-w><C-p>
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Language-specific overrides/settings
-autocmd FileType asm setlocal tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
+autocmd FileType asm,c setlocal shiftwidth=8 softtabstop=8 shiftwidth=8 noexpandtab
+autocmd FileType asm,c iunmap <Tab>
 
-autocmd FileType yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2
-
+autocmd FileType js,ts,jsx,tsx,yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2
