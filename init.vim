@@ -5,6 +5,7 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set colorcolumn=72
+set nowrap
 
 set number relativenumber
 
@@ -25,6 +26,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Chiel92/vim-autoformat'
 Plug 'itchyny/lightline.vim'
 Plug 'joshdick/onedark.vim'
+Plug 'rakr/vim-one'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdtree'
@@ -32,6 +34,9 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'cespare/vim-toml'
 Plug 'fidian/hexmode'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'chrisbra/unicode.vim'
+Plug 'wlangstroth/vim-racket'
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
@@ -46,6 +51,7 @@ if (empty($TMUX))
 endif
 
 " Color scheme
+set background=dark
 colorscheme onedark
 
 " Lightline
