@@ -1,0 +1,5 @@
+:set prompt "\ESC[38;5;208m\STXλ>\ESC[m\STX "
+:set -ferror-spans
+:set -freverse-errors
+:set -fprint-expanded-synonyms
+:set -Wall

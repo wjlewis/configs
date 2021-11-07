@@ -10,6 +10,7 @@ set nowrap
 set number relativenumber
 
 let mapleader="\<Space>"
+let maplocalleader="\\"
 
 inoremap jk <Esc>
 
@@ -26,6 +27,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Chiel92/vim-autoformat'
 Plug 'itchyny/lightline.vim'
 Plug 'joshdick/onedark.vim'
+Plug 'dracula/vim', {'as': 'dracula'}
 Plug 'rakr/vim-one'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -37,6 +39,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'chrisbra/unicode.vim'
 Plug 'wlangstroth/vim-racket'
 Plug 'airblade/vim-gitgutter'
+Plug 'edwinb/idris2-vim'
 
 call plug#end()
 
@@ -117,7 +120,14 @@ nnoremap <Leader>r :NERDTreeFocus<CR>:normal R<CR><C-w><C-p>
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Language-specific overrides/settings
-autocmd FileType asm,c setlocal shiftwidth=8 softtabstop=8 shiftwidth=8 noexpandtab
-autocmd FileType asm,c iunmap <Tab>
+autocmd FileType asm setlocal shiftwidth=8 softtabstop=8 noexpandtab
+autocmd FileType asm iunmap <Tab>
+
+autocmd BufRead,BufNewFile *.h set filetype=c
+
+autocmd FileType c, setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
 autocmd FileType js,ts,jsx,tsx,yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2
+
+" Additional mappings
+nnoremap <Leader>O O<Esc>O

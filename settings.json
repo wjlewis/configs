@@ -1,0 +1,71 @@
+{
+    "workbench.startupEditor": "newUntitledFile",
+    "window.zoomLevel": 1,
+    "editor.fontSize": 17,
+    "editor.fontWeight": "500",
+    "editor.fontLigatures": true,
+    "editor.fontFamily": "Fira Code",
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "k"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "editor.minimap.enabled": false,
+    "editor.tabSize": 2,
+    "workbench.colorTheme": "Atom One Dark",
+    "editor.formatOnSave": true,
+    "rust-analyzer.inlayHints.typeHints": false,
+    "rust-analyzer.inlayHints.parameterHints": false,
+    "rust-analyzer.inlayHints.chainingHints": false,
+    "rust-analyzer.inlayHints.enable": false,
+    "rust-analyzer.lens.implementations": false,
+    "rust-analyzer.callInfo.full": false,
+    "rust-analyzer.completion.addCallArgumentSnippets": false,
+    "rust-analyzer.completion.addCallParenthesis": false,
+    "rust-analyzer.completion.postfix.enable": false,
+    "rust-analyzer.diagnostics.enable": false,
+    "rust-analyzer.diagnostics.enableExperimental": false,
+    "rust-analyzer.hoverActions.debug": false,
+    "rust-analyzer.hoverActions.run": false,
+    "rust-analyzer.hoverActions.linksInHover": false,
+    "rust-analyzer.hoverActions.implementations": false,
+    "rust-analyzer.hoverActions.enable": false,
+    "rust-analyzer.hoverActions.gotoTypeDef": false,
+    "rust-analyzer.lens.debug": false,
+    "rust-analyzer.lens.enable": false,
+    "rust-analyzer.lens.run": false,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.lineNumbers": "relative",
+    "[rust]": {
+        "editor.defaultFormatter": "matklad.rust-analyzer",
+        "editor.tabSize": 4
+    },
+    "[json]": {
+        "editor.tabSize": 2
+    },
+    "[python]": {
+        "editor.tabSize": 4
+    },
+    "[riscv]": {
+        "editor.insertSpaces": false,
+        "editor.tabSize": 8
+    },
+    "[c]": {
+        "editor.defaultFormatter": "xaver.clang-format"
+    },
+    "editor.acceptSuggestionOnEnter": "off",
+    "editor.snippetSuggestions": "none",
+    "editor.quickSuggestions": false,
+    "files.insertFinalNewline": true,
+    "editor.insertSpaces": true,
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    "editor.gotoLocation.multipleDeclarations": "goto",
+    "extensions.ignoreRecommendations": true,
+    "explorer.compactFolders": false,
+    "window.menuBarVisibility": "toggle",
+    "rust-analyzer.checkOnSave.command": "clippy",
+    "prettier.arrowParens": "avoid",
+    "prettier.singleQuote": true,
+    "update.mode": "none"
+}
